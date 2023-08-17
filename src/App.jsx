@@ -7,21 +7,21 @@ let autoId = 0
 
 const App = () => {
   const [datos, setDatos] = useState()
- 
+
 function handleSubmit (datos) {
     setDatos(datos)
   }
 
   return (
     <div>
-      <h2>Formulario</h2>
+      <h1 className="animated-title">Entrega parcial de Front End 3</h1>
       <Form onSubmit={handleSubmit} />
       {datos && (
         <div className="submitted-data">
           <Card data={datos}/>
         </div>
       )}
-      </div>
+    </div>
   )
 }
 

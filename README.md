@@ -1,5 +1,1 @@
-## Para correr el proyecto
-
-`npm install`
-
-`npm run dev`
+## PARCIAL DE FRONT END 3 DE EUGENIO PEREIRA

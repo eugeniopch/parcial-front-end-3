@@ -5,17 +5,12 @@
 
 function Card(user) {
   return (
-    <div className= 'Card'>
-      <h3>Valores ingresados:</h3>
-      <ul>
-
-          <li className='card' key={user.id}>
-            <p>Nombre: {user.data.nombre}</p>
-            <p>Helado favorito: {user.data.helado}</p>
-          </li>
-
-      </ul>
-    </div>
+      <div className='card-container'>
+        <div className='card' key={user.id}>
+              <p className='card-text'>Nombre: {user.data.nombre}</p>
+              <p className='card-text'>Película favorita: {user.data.pelicula}</p>
+        </div>
+      </div>
   );
 }
 

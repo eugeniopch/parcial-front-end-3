@@ -4,48 +4,50 @@ import { useState } from "react";
 const Form = (props) => {
   //Aqui deberias agregar los estados y los handlers para los inputs
   const [nombre, setNombre] = useState('')
-  const [helado, setHelado] = useState('')
+  const [pelicula, setPelicula] = useState('')
   const [mensajeError, setMensajeError] = useState('')
 
   const handleSubmit = (event) => {
     event.preventDefault()
     nombre.trimStart();
     if (nombre.length < 3) {
-      setMensajeError('Por favor chequea que la informacion sea correcta')
-    } else if (helado.length < 6) {
-      setMensajeError('Debe tener mas de 6 caracteres el helado')
+      setMensajeError('El nombre debe de tener más de tres caracteres')
+    } else if (pelicula.length < 6) {
+      setMensajeError('La película debe de tener más de seis caracteres')
     } else {
-      props.onSubmit({ nombre, helado })
+      props.onSubmit({ nombre, pelicula })
       setNombre('')
-      setHelado('')
+      setPelicula('')
       setMensajeError('')
     }
   }
           return (
-            <div>
-              <h1>Elige tu helado favorito</h1>
-              <form onSubmit={handleSubmit}>
+            <div className="form-container">
+              <h1>Elige tu película favorita</h1>
+              <form onSubmit={handleSubmit} className="my-form">
                 <label>
-                  Nombre:
                   <input
                     type='text'
                     value={nombre}
                     onChange={(event) => setNombre(event.target.value)}
+                    className="form-input"
+                    placeholder="Ingrese su nombre"
                   />
                 </label>
                 <br />
                 <label>
-                  Helado favorito:
                   <input
                     type='text'
-                    value={helado}
-                    onChange={(event) => setHelado(event.target.value)}
+                    value={pelicula}
+                    onChange={(event) => setPelicula(event.target.value)}
+                    className="form-input"
+                    placeholder="Ingrese su película favorita"
                   />
                 </label>
                 <br />
-                <button type='submit'>Submit</button>
+                <button type='submit' className="submit-button">Submit</button>
               </form>
-              {mensajeError && <p>{mensajeError}</p>}
+              {mensajeError && <p className="error-text">{mensajeError}</p>}
             </div>
           )
           };      
